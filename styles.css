@@ -211,3 +211,47 @@ button{cursor:pointer}
 .free-foki .foki-live{animation-duration:5.4s;}
 .big-ideas__visual .foki-live{animation-duration:6.6s;}
 .foki-card__visual .foki-live{animation-duration:5.9s;}
+
+
+/* 2026-10-03 — Foki motion/centering fix
+   Keep positioning transform on the wrapper and animate only the image.
+   This prevents the float animation from overriding translate(-50%, -50%). */
+.hero-stage .foki-live,
+.foki-card__visual .foki-live,
+.free-foki .foki-live,
+.big-ideas__visual .foki-live,
+.catalog-foki .foki-live{
+  animation:none;
+  will-change:auto;
+}
+
+.foki-live img{
+  transform:translate3d(0,0,0);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  will-change:transform;
+  animation:fokiFloatSmooth 6.4s cubic-bezier(.45,.05,.55,.95) infinite;
+}
+
+.hero-stage .foki-live img{animation-duration:7.2s;}
+.free-foki .foki-live img{animation-duration:6.6s;}
+.big-ideas__visual .foki-live img{animation-duration:7.6s;}
+.foki-card__visual .foki-live img{animation-duration:7s;}
+
+@keyframes fokiFloatSmooth{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(0,-6px,0)}
+}
+
+/* First hero Foki stays optically centered on phones */
+@media (max-width:640px){
+  .hero-stage .foki-stack{
+    left:50%;
+    top:50%;
+    width:76%;
+    transform:translate(-50%,-50%);
+  }
+  .hero-stage .foki-stack img{
+    object-position:center center;
+  }
+}
