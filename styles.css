@@ -271,3 +271,39 @@ button{cursor:pointer}
   50%{transform:translate3d(0,-7px,0) scale(1.006) rotate(0deg)}
   75%{transform:translate3d(0,-3px,0) scale(1.003) rotate(0.15deg)}
 }
+
+
+/* 2026-10-03 — mobile horizontal overflow fix */
+html,
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+body{
+  position:relative;
+}
+
+@media (max-width:860px){
+  main,
+  .shell,
+  .section,
+  .section-contrast,
+  .topbar,
+  .footer{
+    overflow-x:clip;
+  }
+
+  .reveal.from-right{
+    transform:translateX(24px);
+  }
+
+  .reveal.from-left{
+    transform:translateX(-24px);
+  }
+
+  .reveal.visible{
+    transform:none;
+  }
+}
