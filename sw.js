@@ -1,4 +1,4 @@
-const CACHE = '4cus-v2-foki-hq';
+const CACHE = '4cus-v3-foki-silky';
 const ASSETS = [
   './index.html','./templates.html','./styles.css','./app.js','./data.js','./manifest.webmanifest',
   './assets/icon-192.png','./assets/icon-512.png',
