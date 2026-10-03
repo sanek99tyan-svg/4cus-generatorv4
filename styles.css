@@ -255,3 +255,19 @@ button{cursor:pointer}
     object-position:center center;
   }
 }
+
+
+/* 2026-10-03 — ultra-smooth hero Foki
+   The previous WebP had only 9 animation frames, so the character itself looked jerky.
+   Hero now uses the HQ static PNG and only GPU-accelerated CSS movement. */
+.hero-stage .foki-live img{
+  animation:fokiHeroSilky 8s ease-in-out infinite !important;
+  transform-origin:50% 78%;
+  will-change:transform;
+}
+@keyframes fokiHeroSilky{
+  0%,100%{transform:translate3d(0,0,0) scale(1) rotate(0deg)}
+  25%{transform:translate3d(0,-3px,0) scale(1.003) rotate(-0.15deg)}
+  50%{transform:translate3d(0,-7px,0) scale(1.006) rotate(0deg)}
+  75%{transform:translate3d(0,-3px,0) scale(1.003) rotate(0.15deg)}
+}
